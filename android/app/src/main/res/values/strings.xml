@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">skill-machine-ui</string>
+    <string name="title_activity_main">skill-machine-ui</string>
+    <string name="package_name">com.skillmachine.app</string>
+    <string name="custom_url_scheme">com.skillmachine.app</string>
+</resources>

@@ -1,12 +1,19 @@
 <div class="container">
-
   <form class="login-form">
-    <h4 align="center" style="font-size: 20px; color: #0056b3 ">WELCOME TO GREEN TIDLE</h4>
+    <h4 style="font-size: 20px; color: #0056b3">WELCOME TO GREEN TIDLE</h4>
     <h2>Login</h2>
-    <input id="name" type="text" [formControl]="username">
-    <input id="password" type="text" [formControl]="password">
-    <button type="submit" (click)="login()">Login</button>
+    <input
+      id="name"
+      type="text"
+      [formControl]="username"
+      placeholder="User Name"
+    />
+    <input
+      id="password"
+      type="text"
+      [formControl]="password"
+      placeholder="Password"
+    />
+    <button (click)="login()">Login</button>
   </form>
-
 </div>
-

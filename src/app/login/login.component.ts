@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   userDetails: Map<string, string> = new Map<string, string>();
 
 
-  username = new FormControl('username');
-  password = new FormControl('password');
+  username = new FormControl('');
+  password = new FormControl('');
 
   constructor(private router: Router) {
   }
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     }
 
     passwordAssigned = this.userDetails.get(<string>this.username.getRawValue())
-    console.log(passwordAssigned)
+    console.log('::::',passwordAssigned)
 
     console.log(this.password.getRawValue())
 

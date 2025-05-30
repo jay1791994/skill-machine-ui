@@ -1,12 +1,38 @@
-import { Component } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LocationDomain} from '../models/location';
+import {NgForOf, NgIf} from '@angular/common';
+import {Address} from '../models/address';
 
 @Component({
   selector: 'app-locations',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FormsModule, NgForOf, NgIf],
   templateUrl: './locations.component.html',
   styleUrl: './locations.component.css'
 })
-export class LocationsComponent {
+export class LocationsComponent implements OnInit {
 
+
+    locations: LocationDomain[] = [
+
+    ];
+
+    ngOnInit(): void {
+       let location = new LocationDomain();
+       location.locationId =1;
+
+       let address = new Address();
+       address.streetName = "1528 Lynn Drive";
+       address.city = "Wyllie";
+
+       location.address = address;
+
+       this.locations.push(location);
+
+    }
+
+
+  addCollectionForLocation() {
+     console.log(this.locations);
+  }
 }

@@ -1,1 +1,22 @@
-<p>locations works!</p>
+<div class="container">
+  <h2>MACHINE LOCATIONS</h2>
+
+  <table>
+    <thead>
+    <tr>
+      <th>LOCATION ID</th>
+      <th>LOCATION ADDRESS</th>
+      <th>OPERATION</th>
+      <!-- Add more headers as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let location of this.locations , let i = index">
+      <td>{{location.locationId}}</td>
+      <td>{{location.address?.streetName +  "," + location.address?.city}}</td>
+      <td><button (click)="addCollectionForLocation()">ADD COLLECTION</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

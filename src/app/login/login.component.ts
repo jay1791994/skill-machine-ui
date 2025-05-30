@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 
 
@@ -12,28 +12,22 @@ import {FormControl, ReactiveFormsModule} from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
 
-  userDetails : Map<string, string> = new Map<string, string>();
-
-
-
+  userDetails: Map<string, string> = new Map<string, string>();
 
 
   username = new FormControl('username');
   password = new FormControl('password');
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   login() {
-
-
-
-
     console.log(this.username.getRawValue())
     console.log(this.password)
-    let passwordAssigned : string | undefined | null  = "";
+    let passwordAssigned: string | undefined | null = "";
     if (this.username.getRawValue() === null) {
       alert('Invalid credentials');
     }
@@ -45,7 +39,7 @@ export class LoginComponent implements OnInit{
 
     if (this.password.getRawValue() === passwordAssigned) {
       console.log("login success");
-      this.router.navigate(['/locations']);
+      this.router.navigate(['/home']);
     } else {
       alert('Invalid credentials');
     }
@@ -54,9 +48,9 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.userDetails.set ("admin",
+    this.userDetails.set("admin",
       "password");
-    this.userDetails.set ("admin1",
+    this.userDetails.set("admin1",
       "password1");
 
   }

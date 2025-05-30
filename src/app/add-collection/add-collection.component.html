@@ -1,0 +1,73 @@
+
+   <form class="login-form">
+
+     <h2>CASH COLLECTION</h2>
+     <div>
+
+       <label class="form-label" for="location">LOCATION NAME</label>
+       <select class="form-control" id="location" [(ngModel)]="location" name="location" required>
+         <li *ngFor="let locationItem of locations">
+           <option value="{{locationItem}}">{{locationItem.address?.streetName}} , {{locationItem.address?.city}}</option>
+         </li>
+       </select>
+     </div>
+
+      <button  type="SUBMIT" (click)="showMachineCollectionForm()" *ngIf="!showMachineCollectionFormView">ADD COLLECTION FOR MACHINE</button>
+       <div class="container" *ngIf="showMachineCollectionFormView">
+         <div>
+           <label class="form-label" >START DATE</label>
+           <input type="date" name="startdate" [(ngModel)]="startdate">
+         </div>
+         <div>
+           <label class="form-label" for="endDate">END DATE</label>
+           <input type="date"  name="endDate" [(ngModel)]="enddate">
+         </div>
+         <div>
+           <label class="form-label" for="endDate">AMOUNT FOR MACHINE</label>
+           <input type="number" name="amount" [(ngModel)]="amount">
+         </div>
+         <button class="non-link" type="SUBMIT" (click)="submitCollectionDetail()">SUBMIT COLLECTION</button>
+         <button class="non-link" type="SUBMIT" (click)="hideMachineCollectionForm()">CANCEL</button>
+       </div>
+     <table *ngIf="this.machineCollections.length != 0">
+       <thead>
+       <tr>
+         <th>MACHINE</th>
+         <th>START DATE</th>
+         <th>END DATE</th>
+         <th>AMOUNT</th>
+         <th>DELETE</th>
+         <!-- Add more headers as needed -->
+       </tr>
+       </thead>
+       <tbody>
+       <tr *ngFor="let item of this.machineCollections , let i = index">
+         <td>{{ i + 1 }}</td>
+         <td>{{ item.startDate }}</td>
+         <td>{{ item.endDate }}</td>
+         <td>{{ item.amount }}</td>
+         <td>
+           <button (click)="deletemachine(i)">delete</button>
+         </td>
+       </tr>
+       </tbody>
+     </table>
+
+     <p> TOTAL AMOUNT COLLECTED : {{totalAmountCollected}} </p>
+     <p> OWNER SHARE AMOUNT : {{ownerShareAmount}} </p>
+     <p> VENDOR SHARE AMOUNT : {{vendorShareAmount}} </p>
+     <div>
+       <label class="form-lable" for="endDate">IS OWNER SHARE GIVEN TO THEM?</label>
+       <input style="inline-size: auto; margin-left: 1%" id="name" type="checkbox" [formControl]="cashHandedOverToOwner">
+     </div>
+     <div>
+       <label  for="cashHandedOverTo">CASH RECIEVED BY</label>
+       <input id="name" type="text" [formControl]="cashHandedOverTo">
+     </div>
+
+     <button type="submit" (click)="saveCashCollection()">Submit</button>
+     <button type="submit" (click)="resetCollectionData()">Reset</button>
+   </form>
+
+
+

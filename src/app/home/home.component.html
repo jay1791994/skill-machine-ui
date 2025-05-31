@@ -1,9 +1,23 @@
+<div class="container" style="display: flex; flex-direction: column">
+  <button
+    type="submit"
+    (click)="addCollection()"
+    class="custom-button"
+    style="margin-bottom: 20px"
+  >
+    ADD COLLECTION
+  </button>
 
-<div class="container">
+  <button
+    type="submit"
+    (click)="addLocation()"
+    class="custom-button"
+    style="margin-bottom: 20px"
+  >
+    ADD LOCATION
+  </button>
 
-  <button type="submit" (click)="addCollection()">ADD COLLECTION</button>
-    <button type="submit" (click)="addLocation()">ADD LOCATION</button>
-  <button type="submit" (click)="addOwner()">ADD OWNER</button>
-
+  <button type="submit" (click)="addOwner()" class="custom-button">
+    ADD OWNER
+  </button>
 </div>
-

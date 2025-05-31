@@ -6,7 +6,7 @@ import {Address} from '../models/address';
 
 @Component({
   selector: 'app-locations',
-  imports: [ReactiveFormsModule, FormsModule, NgForOf, NgIf],
+  imports: [ReactiveFormsModule, FormsModule, NgForOf],
   templateUrl: './locations.component.html',
   styleUrl: './locations.component.css'
 })
